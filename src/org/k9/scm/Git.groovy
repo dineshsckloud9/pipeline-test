@@ -13,7 +13,7 @@ class Git implements Serializable {
   void checkout() {
     if (this.config.giturl) {
        this.script.stage('Initialize') {
-         new utilities.GetRequest(config).get();
+#         new utilities.GetRequest(config).get();
          this.script.git(url: this.config.giturl, branch: this.config.branch.trim())
        }
     } else {
