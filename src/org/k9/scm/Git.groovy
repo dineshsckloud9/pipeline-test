@@ -14,7 +14,7 @@ class Git implements Serializable {
     if (this.config.giturl) {
        this.script.stage('Initialize') {
 //         new utilities.GetRequest(config).get();
-         this.script.git(url: this.config.giturl, branch: this.config.branch.trim())
+         this.script.git(url: this.config.giturl, branch: this.config.branch)
        }
     } else {
         error "no URL found for git config --get remote.origin.url "
