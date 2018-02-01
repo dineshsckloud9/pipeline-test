@@ -14,7 +14,7 @@ def call(body) {
                 checkout scm
             }
             stage ('Build') {
-                sh "echo 'building ${**config.projectName**} ...'"
+                sh "echo 'building ${config.projectName} ...'"
             }
             stage ('Tests') {
                 parallel 'static': {
@@ -28,7 +28,7 @@ def call(body) {
                 }
             }
             stage ('Deploy') {
-                sh "echo 'deploying to server ${**config.serverDomain**}...'"
+                sh "echo 'deploying to server ${config.serverDomain}...'"
             }
         } catch (err) {
             currentBuild.result = 'FAILED'
