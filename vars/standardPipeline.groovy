@@ -5,16 +5,22 @@ def call(body) {
     body.delegate = config
     body()
 
-    pipeline {
-	agent any
-
-        stages {
-            stage('Clone') {
-                echo "cloning..."//sh "git clone ${config.gitUrl}"
-            }
-            //stage ('Build') {
-            //    sh "mvn clean install"
-            //}
-         } 
-     }
- }
+pipeline {
+    agent any
+    tools {
+    maven 'maven'
+  }
+    stages {
+        stage('Back-end') {
+            steps {
+                git 'https://github.com/spring-projects/spring-petclinic.git'
+            }
+        }
+        stage('maven') {
+            steps {
+                sh 'mvn clean install -DskipTests=true'
+            }
+        }
+    }
+  }
+}
