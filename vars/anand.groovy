@@ -8,11 +8,11 @@ def call(body) {
 pipeline {
     agent any
     stages {
-        stage('Checkout') {
-            steps {
-                  echo "cloning"
-            }
-        }
-    }
-  }
+        stage('Checkout') {
+            steps {
+               echo "cloning"
+            }
+        }
+     }
+   }
 }
