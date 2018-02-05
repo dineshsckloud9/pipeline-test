@@ -18,12 +18,12 @@ pipeline {
 		sh 'mvn clean install'
 	}
       }
-        stage ('first step on first node') {
+        stage ('Copy Artifacts') {
 	   steps {
 		sh "mkdir -p output"
 		sh "cp -vaf target/*.jar output/"
 		archiveArtifacts artifacts: 'output/*.jar'
-		sh 'echo ${artifacts}'
+		sh "echo ${artifacts}"
 	}
       }
     }
