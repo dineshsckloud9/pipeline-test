@@ -22,8 +22,8 @@ pipeline {
 	   steps {
 		sh "mkdir -p output"
 		sh "cp -vaf target/*.jar output/"
-		def env.artifacts = archiveArtifacts artifacts: 'output/*.jar'
-		sh "echo ${env.artifacts}"
+		def artifacts = archiveArtifacts artifacts: 'output/*.jar'
+		sh "echo ${artifacts}"
 	}
       }
     }
