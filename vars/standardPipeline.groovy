@@ -12,6 +12,10 @@ pipeline {
             steps {
                git url:'https://github.com/spring-projects/spring-petclinic.git'
             }
+        stage('Build') {
+            steps {
+               sh 'mvn clean install'
+            }
         }
      }
    }
