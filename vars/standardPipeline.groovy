@@ -6,22 +6,13 @@ def call(body) {
     body()
 
 pipeline {
-    agent any
-//    tools {
-//    maven 'maven'
-//  }
+    agent any
     stages {
         stage('Checkout') {
             steps {
-        //        git 'https://github.com/spring-projects/spring-petclinic.git'
 		  echo "cloning"
             }
         }
-//        stage('maven') {
-//            steps {
-//                sh 'mvn clean install -DskipTests=true'
-//            }
-//        }
     }
   }
 }
