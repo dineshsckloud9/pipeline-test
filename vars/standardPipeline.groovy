@@ -7,12 +7,12 @@ def call(body) {
 
 pipeline {
     agent any
-    stages {
-        stage('Checkout') {
-            steps {
-		  git url:'https://github.com/spring-projects/spring-petclinic.git'
-            }
-        }
-    }
-  }
+    stages {
+        stage('Checkout') {
+            steps {
+               git url:'https://github.com/spring-projects/spring-petclinic.git'
+            }
+        }
+     }
+   }
 }
