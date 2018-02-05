@@ -22,8 +22,6 @@ pipeline {
 	   steps {
 		sh "mkdir -p output"
 		sh "cp -vaf target/*.jar output/"
-		archiveArtifacts artifacts: 'output/*.jar'
-		sh "echo $artifacts"
 	}
       }
     }
