@@ -13,7 +13,7 @@ def call(body) {
                 sh "git clone ${config.gitUrl}"
             }
             stage ('Build') {
-		env.PATH = "${mvnHome}/bin:${env.PATH}"
+		env.PATH = "${mvnHome}/bin:${env.PATH}",
                 sh "mvn clean install"
             }
         } catch (err) {
