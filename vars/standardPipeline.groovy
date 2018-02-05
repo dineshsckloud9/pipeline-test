@@ -10,8 +10,11 @@ def call(body) {
         deleteDir()
 
         try {
+            stage ('Clone') {
+                checkout scm
+            }
             stage ('Build') {
-                sh "echo 'building ${config.projectName} ...'"
+                sh "echo 'building ${config.projectName}...'"
             }
             stage ('Tests') {
                 parallel 'static': {
