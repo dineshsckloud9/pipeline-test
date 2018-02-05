@@ -4,7 +4,6 @@ def call(body) {
     body.resolveStrategy = Closure.DELEGATE_FIRST
     body.delegate = config
     body()
-    def artifacts = ''
 pipeline {
     agent any
     stages {
@@ -22,8 +21,6 @@ pipeline {
 	   steps {
 		sh "mkdir -p output"
 		sh "cp -vaf target/*.jar output/"
-		archiveArtifacts artifacts: 'output/*.jar'
-		sh "echo $artifacts"
 	}
       }
     }
