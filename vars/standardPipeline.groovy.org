@@ -14,7 +14,7 @@ def call(body) {
                 checkout scm
             }
             stage ('Build') {
-                sh "mvn clean package"
+                sh "echo 'building ${config.projectName}...'"
             }
             stage ('Tests') {
                 parallel 'static': {
