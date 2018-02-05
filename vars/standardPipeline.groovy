@@ -22,7 +22,7 @@ pipeline {
 	   steps {
 		sh "mkdir -p output"
 		sh "cp -vaf target/*.jar output/"
-		artifacts = archiveArtifacts artifacts: 'output/*.jar'
+		archiveArtifacts artifacts: 'output/*.jar'
 		sh "echo $artifacts"
 	}
       }
