@@ -7,13 +7,14 @@ def call(body) {
 
     pipeline {
 	agent any
+
         stages {
-            stage ('Clone') {
-                sh "git clone ${config.gitUrl}"
+            stage('Clone') {
+                echo "cloning..."//sh "git clone ${config.gitUrl}"
             }
             //stage ('Build') {
             //    sh "mvn clean install"
             //}
          } 
-	}
-    }
+     }
+ }
