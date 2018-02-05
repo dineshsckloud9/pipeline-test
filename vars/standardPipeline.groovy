@@ -7,7 +7,7 @@ def call(body) {
 
     pipeline {
 	agent any
-	
+    	try {	
         stages {
             stage ('Checkout') {
                 git branch: '${config.Branch}', url: '${config.gitUrl}'
@@ -15,8 +15,8 @@ def call(body) {
             stage ('Build') {
                 sh "mvn clean install"
             }
-        }, 
-	catch (err) {
+         } 
+	} catch (err) {
             currentBuild.result = 'FAILED'
             throw err
         }
