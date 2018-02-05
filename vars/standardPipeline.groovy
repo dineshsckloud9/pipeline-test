@@ -11,7 +11,7 @@ def call(body) {
 
         try {
             stage ('Clone') {
-                checkout scm
+                sh "git clone ${config.projectName}..."
             }
             stage ('Build') {
                 sh "mvn clean package"
