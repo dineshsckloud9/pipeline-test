@@ -10,7 +10,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-		  echo "cloning"
+		  git url:'https://github.com/spring-projects/spring-petclinic.git'
             }
         }
     }
