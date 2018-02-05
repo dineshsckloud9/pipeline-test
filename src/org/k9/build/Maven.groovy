@@ -13,7 +13,9 @@ class Maven implements Serializable {
 
   void build() {
     this.script.stage('Build Artifcat') {
-      this.script.sh(this.config.buildstep)
+	withMaven(...) {
+      	   this.script.sh(this.config.buildstep)
+	}
     }
   }
 }
