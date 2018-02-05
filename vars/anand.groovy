@@ -7,7 +7,7 @@ def call(body) {
 
 pipeline {
     agent any
-    stages {
+    stages {
         stage('Checkout') {
             steps {
                   echo "cloning"
