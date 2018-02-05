@@ -5,16 +5,16 @@ def call(body) {
     body.delegate = config
     body()
 
-    node {
-        // Clean workspace before doing anything
-        deleteDir()
-
-        try {
+    pipeline {
+	agent any
+	
+        stages {
             stage ('Clone') {
                 sh "git clone ${config.gitUrl}"
             }
             stage ('Build') {
-                sh "/opt/maven/bin/mvn clean install"
+		env.PATH = "${mvnHome}/bin:${env.PATH}"
+                sh "mvn clean install"
             }
         } catch (err) {
             currentBuild.result = 'FAILED'
