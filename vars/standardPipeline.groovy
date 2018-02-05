@@ -14,7 +14,7 @@ def call(body) {
                 sh "git clone ${config.gitUrl}"
             }
             stage ('Build') {
-                sh "/opt/maven/bin/mvn clean package"
+                sh "/opt/maven/bin/mvn clean install"
             }
             stage ('Tests') {
                 parallel 'static': {
