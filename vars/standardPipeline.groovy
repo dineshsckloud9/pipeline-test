@@ -15,7 +15,8 @@ def call(body) {
             stage ('Build') {
                 sh "mvn clean install"
             }
-        } catch (err) {
+        }, 
+	catch (err) {
             currentBuild.result = 'FAILED'
             throw err
         }
