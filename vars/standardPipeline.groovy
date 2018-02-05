@@ -9,8 +9,8 @@ def call(body) {
 	agent any
     	try {	
         stages {
-            stage ('Checkout') {
-                git branch: '${config.Branch}', url: '${config.gitUrl}'
+            stage ('Clone') {
+                sh "git clone ${config.gitUrl}"
             }
             stage ('Build') {
                 sh "mvn clean install"
