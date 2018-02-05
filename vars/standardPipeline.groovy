@@ -15,16 +15,16 @@ pipeline {
 	}
 	stage('Build') {
 	    steps {
-		sh 'mvn clean install'
+		sh 'mvn clean install -DskipTests=true'
 	}
       }
         stage ('Copy Artifacts') {
 	   steps {
 		sh "mkdir -p output"
 		sh "cp -vaf target/*.jar output/"
-		archiveArtifacts artifacts: 'output/*.jar'
+		env.artifacts = archiveArtifacts artifacts: 'output/*.jar'
 		sh "echo 'ready'"
-		sh "echo ${artifacts}"
+		sh "echo ${env.artifacts}"
 	}
       }
     }
