@@ -7,18 +7,13 @@ def call(body) {
 
     pipeline {
 	agent any
-    	try {	
         stages {
             stage ('Clone') {
                 sh "git clone ${config.gitUrl}"
             }
-            stage ('Build') {
-                sh "mvn clean install"
-            }
+            //stage ('Build') {
+            //    sh "mvn clean install"
+            //}
          } 
-	} catch (err) {
-            currentBuild.result = 'FAILED'
-            throw err
-        }
+	}
     }
-}
