@@ -8,15 +8,15 @@ def call(body) {
 pipeline {
     agent any
     stages {
-        stage('Checkout') {
-            steps {
-               git url:'https://github.com/spring-projects/spring-petclinic.git'
-            }
-        stage('Build') {
-            steps {
-               sh 'mvn clean install'
-            }
-        }
+	stage('Checkout') {
+	    steps {
+		git url:'https://github.com/spring-projects/spring-petclinic.git'
+	}
+	stage('Build') {
+	    steps {
+		sh 'mvn clean install'
+	}
+      }
      }
    }
   }
