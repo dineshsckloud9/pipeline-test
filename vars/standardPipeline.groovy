@@ -9,11 +9,10 @@ def call(body) {
 	agent any
 	
         stages {
-            stage ('Clone') {
-                sh "git clone ${config.gitUrl}"
+            stage ('Checkout') {
+                git branch: '${config.Branch}', url: '${config.gitUrl}'
             }
             stage ('Build') {
-		env.PATH = "${mvnHome}/bin:${env.PATH}",
                 sh "mvn clean install"
             }
         } catch (err) {
