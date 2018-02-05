@@ -10,7 +10,7 @@ pipeline {
     stages {
 	stage('Checkout') {
 	    steps {
-		git url:'${$config.gitUrl}'
+		git url:'${config.gitUrl}'
 		}
 	}
 	stage('Build') {
