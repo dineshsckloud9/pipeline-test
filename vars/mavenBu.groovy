@@ -9,7 +9,7 @@ def call(body) {
 //	agent any
 node
 		stage('Checkout') {
-				git(gitUrl: config.gitUrl, branch: config.branch)
+				git(Url: config.Url, branch: config.branch)
 			}
 		stage('Build Artifcat'){
 				sh(buildstep: config.buildstep)
