@@ -14,5 +14,5 @@ node
 		stage('Build Artifcat'){
 				sh(config.buildstep)
 			}
-	}
+//	}
 }
