@@ -6,8 +6,8 @@ def call(body) {
     body()
 
 //	pipeline { 
-	node {
 //	   agent any
+	node {
 		stage('test') {
 			echo "hello world"
 		}
@@ -15,11 +15,9 @@ def call(body) {
 			git(Url: config.Url, branch: config.branch)
 		}
 		stage ('Build') {
-			if ( "${config.testcase}" == true) {
+			if ("${config.testcase}" == true) {
 				sh('mvn clean install -DskipTests=true')
-//			sh("${config.buildstep}")
-//			echo "${config.buildstep}"
-			echo "${config.testcase}"
+				echo "${config.testcase}"
 			}
 			else {
 				sh('mvn clean install')
@@ -28,3 +26,5 @@ def call(body) {
 		}
 	}
 }
+//			sh("${config.buildstep}")
+//			echo "${config.buildstep}"
