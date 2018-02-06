@@ -15,9 +15,14 @@ def call(body) {
 			git(Url: config.Url, branch: config.branch)
 		}
 		stage ('Build') {
-			sh("${config.buildstep}")
+			if ( "${config.testcase}" == true) {
+				sh('mvn clean install -DskipTests=true')
+//			sh("${config.buildstep}")
 			echo "${config.buildstep}"
+			}
+			else {
+				sh('mvn clean install')
+			}
 		}
 	}
-
 }
