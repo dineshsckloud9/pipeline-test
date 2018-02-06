@@ -5,10 +5,14 @@ def call(body) {
     body.delegate = config
     body()
 
-	pipeline {
-	   agent any
+	pipeline 
+	node {
+//	   agent 
 		stage('test') {
 			echo "hello world"
+		}
+		stage('Checkout') {
+			git(Url: config.Url, branch: config.branch)
 		}
 	}
 
