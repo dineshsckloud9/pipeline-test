@@ -16,11 +16,11 @@ def call(body) {
 		}
 		stage ('Build') {
 			if ("${config.testcase}" == true) {
-				sh('mvn clean install -DskipTests=true')
+				sh('mvn clean install')
 				echo "${config.testcase}"
 			}
 			else {
-				sh('mvn clean install')
+				sh('mvn clean install -DskipTests=true')
 				echo "${config.testcase}"
 			}
 		}
