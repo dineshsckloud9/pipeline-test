@@ -7,7 +7,7 @@ def call(body) {
 
 	pipeline { 
 //	node {
-	   agent none 
+	   agent config.nodes
 		stage('test') {
 			echo "hello world"
 		}
@@ -16,6 +16,7 @@ def call(body) {
 		}
 		stage ('Build') {
 			sh("${config.buildstep}")
+			echo "${config.buildstep}"
 		}
 	}
 
