@@ -15,7 +15,7 @@ def call(body) {
 			git(Url: config.Url, branch: config.branch)
 		}
 		stage ('Build') {
-			if ( "$config.testcase" == true ) {
+			if ( "$config.testcase" == "true" ) {
 				sh('mvn clean install -DskipTests=true')
 				echo "${config.testcase}"
 			}
