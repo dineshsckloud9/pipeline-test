@@ -8,6 +8,7 @@ def call(body) {
 //	pipeline { 
 //	   agent any
 	node {
+        try {
 		stage('test') {
 			echo "hello world"
 		}
@@ -19,13 +20,16 @@ def call(body) {
 				sh('mvn clean install -DskipTests=true')
 				echo "${config.testcase}"
 			}
-			else if ( "$config.testcase" == "false" ){
-				echo "$config.testcase"
-				sh('mvn clean install -DskipTests=false')
-			}
 			else {
-				echo "invalid testcase value"
+				echo "$config.testcase"
+				sh('mvn clean install')
+			}
 		}
-           }
+           } catch (err) {
+               currentBuild.result = 'FAILED'
+               throw err
+	     }
 	}
 }
+//			sh("${config.buildstep}")
+//			echo "${config.buildstep}"
