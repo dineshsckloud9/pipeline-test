@@ -11,8 +11,8 @@ node {
 		stage('Checkout') {
 				git(Url: config.Url, branch: config.branch)
 			}
-		stage('Build Artifcat'){
-				sh(buildstep: config.buildstep)
-			}
+//		stage('Build Artifcat'){
+//				sh(buildstep: config.buildstep)
+//			}
 	}
 }
