@@ -7,12 +7,12 @@ def call(body) {
 
 //pipeline {
 //	agent any
-node
+node {
 		stage('Checkout') {
 				git(Url: config.Url, branch: config.branch)
 			}
 		stage('Build Artifcat'){
 				sh(buildstep: config.buildstep)
 			}
-//	}
+	}
 }
