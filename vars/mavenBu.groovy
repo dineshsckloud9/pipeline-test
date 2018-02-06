@@ -14,6 +14,9 @@ def call(body) {
 		stage('Checkout') {
 			git(Url: config.Url, branch: config.branch)
 		}
+		stage ('Build') {
+			sh("${config.buildstep}")
+		}
 	}
 
 }
