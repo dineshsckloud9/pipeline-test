@@ -12,7 +12,7 @@ node
 				git(url: config.url, branch: config.branch)
 			}
 		stage('Build Artifcat'){
-				sh(config.buildstep)
+				sh(buildstep: config.buildstep)
 			}
 //	}
 }
