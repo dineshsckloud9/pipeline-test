@@ -18,7 +18,8 @@ def call(body) {
 			if ( "${config.testcase}" == true) {
 				sh('mvn clean install -DskipTests=true')
 //			sh("${config.buildstep}")
-			echo "${config.buildstep}"
+//			echo "${config.buildstep}"
+			echo "${config.testcase}"
 			}
 			else {
 				sh('mvn clean install')
