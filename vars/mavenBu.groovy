@@ -5,9 +5,9 @@ def call(body) {
     body.delegate = config
     body()
 
-	pipeline 
-	node {
-//	   agent 
+	pipeline { 
+//	node {
+	   agent none 
 		stage('test') {
 			echo "hello world"
 		}
