@@ -25,6 +25,7 @@ def call(body) {
 			}
 			else {
 				echo "invalid testcase value"
+				exit 1
 		}
            }
 	}
