@@ -5,8 +5,9 @@ def call(body) {
 	body.delegate = config
 	body ()
 
-pipeline {
-	agent any
+//pipeline {
+//	agent any
+node
 		stage('Checkout') {
 				git(url: config.url, branch: config.branch)
 			}
