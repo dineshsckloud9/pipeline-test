@@ -23,6 +23,7 @@ def call(body) {
 			}
 			else {
 				sh('mvn clean install')
+				echo "${config.testcase}"
 			}
 		}
 	}
