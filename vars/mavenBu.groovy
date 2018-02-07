@@ -8,12 +8,6 @@ def call(body) {
 //	pipeline { 
 //	   agent any
 	node {
-		stage('test') {
-			echo "hello world"
-		}
-		stage('Checkout') {
-			git(Url: config.Url, branch: config.branch)
-		}
 		stage ('Build') {
 			if ( "$config.testcase" == "true" ) {
 				sh('mvn clean install -DskipTests=true')
@@ -26,7 +20,7 @@ def call(body) {
 			else {
 				echo "invalid testcase value"
 				exit 1
-		}
-           }
+			}
+           	}
 	}
 }
