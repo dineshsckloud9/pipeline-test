@@ -60,7 +60,7 @@ class Maven {
         }
     } else {
 	    System.out.println(this.config.testcase)
-        this.script.error "testcase parameter has invalid value!"
+//        this.script.error "testcase parameter has invalid value!"
     }
   }
 }
