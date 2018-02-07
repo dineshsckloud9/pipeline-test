@@ -1,7 +1,7 @@
 package org.k9.build
 import org.k9.*
 
-class Maven implements Serializable {
+class Maven {
   def config
   def script
   def tmp
