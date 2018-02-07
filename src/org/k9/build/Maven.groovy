@@ -14,7 +14,7 @@ class Maven {
 
   void build() {
 	    System.out.println(this.config.testcase)
-    if (this.config.testcase == "true") {
+    if (this.config.testcase == true) {
         if (this.config.pompath.length() > 0 && this.config.pompath != false) {
 
             String fileName = this.config.pompath.substring(this.config.pompath.lastIndexOf("/"))
@@ -36,7 +36,7 @@ class Maven {
         } else {
             return "mvn clean install -DskipTests=true"
         }
-    } else if (this.config.testcase == "false") {
+    } else if (this.config.testcase == false) {
         if (this.config.pompath.length() > 0 && this.config.pompath != false) {
 
             String fileName = this.config.pompath.substring(this.config.pompath.lastIndexOf("/"))
@@ -59,8 +59,8 @@ class Maven {
             return "mvn clean install -DskipTests=false"
         }
     } else {
-	    System.out.println(this.config.testcase)
-//        this.script.error "testcase parameter has invalid value!"
+//	    System.out.println(this.config.testcase)
+        this.script.error "testcase parameter has invalid value!"
     }
   }
 }
