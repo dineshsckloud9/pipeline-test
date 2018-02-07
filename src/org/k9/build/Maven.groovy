@@ -13,46 +13,46 @@ class Maven implements Serializable {
   }
 
   void build() {
-    if (this.config.mvn_testcase == "true") {
-        if (this.config.mvn_pompath.length() > 0 && this.config.mvn_pompath != false) {
+    if (this.config.mvntestcase == "true") {
+        if (this.config.mvnpompath.length() > 0 && this.config.mvnpompath != false) {
 
-            String fileName = this.config.mvn_pompath.substring(this.config.mvn_pompath.lastIndexOf("/"))
+            String fileName = this.config.mvnpompath.substring(this.config.mvnpompath.lastIndexOf("/"))
             if(fileName.lastIndexOf(".") != -1 && fileName.lastIndexOf(".") != 0) {
                  this.tmp = fileName.substring(fileName.lastIndexOf(".")+1);
             } else {
                  this.tmp = "Something else"
             }
-//	    System.out.println(this.config.mvn_pompath.length())
-            if (this.tmp != 'xml' && this.config.mvn_pompath.charAt(this.config.mvn_pompath.length()-1) != File.separatorChar) {
-                this.config.mvn_pompath += File.separator;
+//	    System.out.println(this.config.mvnpompath.length())
+            if (this.tmp != 'xml' && this.config.mvnpompath.charAt(this.config.mvnpompath.length()-1) != File.separatorChar) {
+                this.config.mvnpompath += File.separator;
             }
 
             if (this.tmp == 'xml') {
-                return "mvn clean install -DskipTests=true -f " + this.config.mvn_pompath
+                return "mvn clean install -DskipTests=true -f " + this.config.mvnpompath
             } else {
-                return "mvn clean install -DskipTests=true -f " + this.config.mvn_pompath + "pom.xml"
+                return "mvn clean install -DskipTests=true -f " + this.config.mvnpompath + "pom.xml"
             }
         } else {
             return "mvn clean install -DskipTests=true"
         }
-    } else if (this.config.mvn_testcase == "false") {
-        if (this.config.mvn_pompath.length() > 0 && this.config.mvn_pompath != false) {
+    } else if (this.config.mvntestcase == "false") {
+        if (this.config.mvnpompath.length() > 0 && this.config.mvnpompath != false) {
 
-            String fileName = this.config.mvn_pompath.substring(this.config.mvn_pompath.lastIndexOf("/"))
+            String fileName = this.config.mvnpompath.substring(this.config.mvnpompath.lastIndexOf("/"))
             if(fileName.lastIndexOf(".") != -1 && fileName.lastIndexOf(".") != 0) {
                  String extension = fileName.substring(fileName.lastIndexOf(".")+1);
             } else {
                  String extension = "Something else"
             }
 
-            if (extension != 'xml' && this.config.mvn_pompath.charAt(this.config.mvn_pompath.length()-1) != File.separatorChar) {
-                this.config.mvn_pompath += File.separator;
+            if (extension != 'xml' && this.config.mvnpompath.charAt(this.config.mvnpompath.length()-1) != File.separatorChar) {
+                this.config.mvnpompath += File.separator;
             }
 
             if (extension == 'xml') {
-                return "mvn clean install -DskipTests=false -f " + this.config.mvn_pompath
+                return "mvn clean install -DskipTests=false -f " + this.config.mvnpompath
             } else {
-                return "mvn clean install -DskipTests=false -f " + this.config.mvn_pompath + "pom.xml"
+                return "mvn clean install -DskipTests=false -f " + this.config.mvnpompath + "pom.xml"
             }
         } else {
             return "mvn clean install -DskipTests=false"
