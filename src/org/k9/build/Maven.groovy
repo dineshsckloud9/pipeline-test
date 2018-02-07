@@ -12,7 +12,7 @@ class Maven implements Serializable {
   }
 
   void buildmvncommand() {
-    if (this.config.mvn_testcase == true) {
+    if (this.config.mvn_testcase == "true") {
         if (this.config.mvn_pompath.length() > 0 && this.config.mvn_pompath != false) {
 
             String fileName = this.config.mvn_pompath.substring(this.config.mvn_pompath.lastIndexOf("/"))
@@ -34,7 +34,7 @@ class Maven implements Serializable {
         } else {
             return "mvn clean install -DskipTests=true"
         }
-    } else if (this.config.mvn_testcase == false) {
+    } else if (this.config.mvn_testcase == "false") {
         if (this.config.mvn_pompath.length() > 0 && this.config.mvn_pompath != false) {
 
             String fileName = this.config.mvn_pompath.substring(this.config.mvn_pompath.lastIndexOf("/"))
