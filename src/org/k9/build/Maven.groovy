@@ -59,7 +59,6 @@ class Maven {
             return "mvn clean install -DskipTests=false"
         }
     } else {
-//	    System.out.println(this.config.testcase)
         this.script.error "testcase parameter has invalid value!"
     }
   }
