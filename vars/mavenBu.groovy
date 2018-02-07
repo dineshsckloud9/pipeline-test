@@ -5,9 +5,5 @@ def call(body) {
 	body.delegate = config
 	body ()
 
-	node {
-		stage('Checkout') {
-			git(Url: config.Url, branch: config.branch)
-		}
-	}
+
 }
