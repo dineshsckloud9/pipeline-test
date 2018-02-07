@@ -25,7 +25,6 @@ class Maven {
             if (this.tmp != 'xml' && this.config.pompath.charAt(this.config.pompath.length()-1) != File.separatorChar) {
                 this.config.pompath += File.separator;
             }
-		this.script.sh("mvn clean install -DskipTests=true -f " + this.config.pompath)
             if (this.tmp == 'xml') {
 //                return "mvn clean install -DskipTests=true -f " + this.config.pompath
 		this.script.sh("mvn clean install -DskipTests=true -f " + this.config.pompath)
