@@ -21,7 +21,7 @@ class Maven implements Serializable {
             } else {
                  this.tmp = "Something else"
             }
-	    System.out.println(this.config.mvn_pompath.length())
+//	    System.out.println(this.config.mvn_pompath.length())
             if (this.tmp != 'xml' && this.config.mvn_pompath.charAt(this.config.mvn_pompath.length()-1) != File.separatorChar) {
                 this.config.mvn_pompath += File.separator;
             }
