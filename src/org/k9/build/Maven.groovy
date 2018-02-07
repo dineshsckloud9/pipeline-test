@@ -27,15 +27,15 @@ class Maven {
             }
 		this.script.sh("mvn clean install -DskipTests=true -f " + this.config.pompath)
             if (this.tmp == 'xml') {
-                return "mvn clean install -DskipTests=true -f " + this.config.pompath
+//                return "mvn clean install -DskipTests=true -f " + this.config.pompath
 		this.script.sh("mvn clean install -DskipTests=true -f " + this.config.pompath)
             } else {
 		    this.script.sh("mvn clean install -DskipTests=true -f " + this.config.pompath + "pom.xml")	    
-                    return "mvn clean install -DskipTests=true -f " + this.config.pompath + "pom.xml"
+//                    return "mvn clean install -DskipTests=true -f " + this.config.pompath + "pom.xml"
             }
         } else {
 		this.script.sh("mvn clean install -DskipTests=true")
-            return "mvn clean install -DskipTests=true"
+//            return "mvn clean install -DskipTests=true"
         }
     } else if (this.config.testcase == false) {
         if (this.config.pompath.length() > 0 && this.config.pompath != false) {
@@ -52,20 +52,20 @@ class Maven {
             }
 
             if (extension == 'xml') {
-                return "mvn clean install -DskipTests=false -f " + this.config.pompath
+//                return "mvn clean install -DskipTests=false -f " + this.config.pompath
 		this.script.sh("mvn clean install -DskipTests=true -f " + this.config.pompath)
             } else {
-                return "mvn clean install -DskipTests=false -f " + this.config.pompath + "pom.xml"
+//                return "mvn clean install -DskipTests=false -f " + this.config.pompath + "pom.xml"
 		this.script.sh("mvn clean install -DskipTests=true -f " + this.config.pompath + "pom.xml")
             }
         } else {
-            return "mvn clean install -DskipTests=false"
+//            return "mvn clean install -DskipTests=false"
 	    this.script.sh("mvn clean install -DskipTests=true")
         }
     } else {
         this.script.error "testcase parameter has invalid value!"
 	    println(this.config.testcase)
     }
-}	    
+   } 
   }
 }
