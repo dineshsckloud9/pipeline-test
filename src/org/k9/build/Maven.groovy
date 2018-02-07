@@ -1,4 +1,5 @@
 package org.k9.build
+import org.k9.*
 
 class Maven implements Serializable {
   def config
