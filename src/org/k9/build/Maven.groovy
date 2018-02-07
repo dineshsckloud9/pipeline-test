@@ -12,7 +12,7 @@ class Maven implements Serializable {
     this.tmp = false
   }
 
-  void buildmvncommand() {
+  void build() {
     if (this.config.mvn_testcase == "true") {
         if (this.config.mvn_pompath.length() > 0 && this.config.mvn_pompath != false) {
 
