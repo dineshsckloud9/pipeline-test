@@ -58,8 +58,7 @@ class Maven {
             return "mvn clean install -DskipTests=false"
         }
     } else {
-//        this.script.error "testcase parameter has invalid value! "
-            return "mvn clean install"
+        this.script.error "testcase parameter has invalid value! "
     }
   }
 }
