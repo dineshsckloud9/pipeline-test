@@ -53,18 +53,17 @@ class Maven {
 
             if (extension == 'xml') {
 //                return "mvn clean install -DskipTests=false -f " + this.config.pompath
-		this.script.sh("mvn clean install -DskipTests=true -f " + this.config.pompath)
+		this.script.sh("mvn clean install -DskipTests=false -f " + this.config.pompath)
             } else {
 //                return "mvn clean install -DskipTests=false -f " + this.config.pompath + "pom.xml"
-		this.script.sh("mvn clean install -DskipTests=true -f " + this.config.pompath + "pom.xml")
+		this.script.sh("mvn clean install -DskipTests=false -f " + this.config.pompath + "pom.xml")
             }
         } else {
 //            return "mvn clean install -DskipTests=false"
-	    this.script.sh("mvn clean install -DskipTests=true")
+	    this.script.sh("mvn clean install -DskipTests=false")
         }
     } else {
         this.script.error "testcase parameter has invalid value!"
-	    println(this.config.testcase)
     }
    } 
   }
