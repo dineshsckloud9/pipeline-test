@@ -13,6 +13,7 @@ class Maven {
   }
 
   void build() {
+	    System.out.println(this.config.testcase)
     if (this.config.testcase == "true") {
         if (this.config.pompath.length() > 0 && this.config.pompath != false) {
 
@@ -22,7 +23,7 @@ class Maven {
             } else {
                  this.tmp = "Something else"
             }
-//	    System.out.println(this.config.pompath.length())
+	    System.out.println(this.config.pompath.length())
             if (this.tmp != 'xml' && this.config.pompath.charAt(this.config.pompath.length()-1) != File.separatorChar) {
                 this.config.pompath += File.separator;
             }
@@ -58,7 +59,7 @@ class Maven {
             return "mvn clean install -DskipTests=false"
         }
     } else {
-        this.script.error "testcase parameter has invalid value! "
+        this.script.error "testcase parameter has invalid value!"
     }
   }
 }
