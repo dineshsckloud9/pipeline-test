@@ -14,6 +14,7 @@ class Maven {
 
   void build() {
 	  this.script.error "hhhhhhhhhhhhhhhhhhhhhhhh"
+	  this.script.sh("echo $this.config.testcase")
 	  println "Inside Maven"	    
   }
 }
