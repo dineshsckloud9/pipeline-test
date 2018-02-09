@@ -35,6 +35,9 @@ class Maven {
             if (this.tmp == 'xml') {
                 return "mvn clean install -DskipTests=true -f " + this.config.pompath
             } else {
+		    this.script.sh("echo '***********************execcute maven command***********************'")
+		    this.script.sh("mvn clean install -DskipTests=true -f " + this.config.pompath + "pom.xml")
+		    
                 return "mvn clean install -DskipTests=true -f " + this.config.pompath + "pom.xml"
             }
         } else {
