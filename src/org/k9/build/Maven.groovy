@@ -13,7 +13,7 @@ class Maven {
   }
 
   void build() {
-	    System.out.println(this.config.testcase)
+	    println(this.config.testcase)
     if (this.config.testcase == true) {
         if (this.config.pompath.length() > 0 && this.config.pompath != false) {
 
@@ -60,7 +60,7 @@ class Maven {
         }
     } else {
         this.script.error "testcase parameter has invalid value!"
-	    System.out.println(this.config.testcase)
+	    println(this.config.testcase)
     }
   }
 }
