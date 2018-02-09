@@ -13,6 +13,7 @@ class Maven {
   }
 
   void build() {
+	  println "Inside Maven"
 	    println(this.config.testcase)
     if (this.config.testcase == true) {
         if (this.config.pompath.length() > 0 && this.config.pompath != false) {
