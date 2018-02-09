@@ -18,24 +18,27 @@ class Maven {
     if (this.config.testcase == true) {
 	  this.script.sh("echo '***********************ENV Setup Done***********************'")
         if (this.config.pompath.length() > 0 && this.config.pompath != false) {
-
+		this.script.sh("echo '***********************Inside If***********************'")
             String fileName = this.config.pompath.substring(this.config.pompath.lastIndexOf("/"))
             if(fileName.lastIndexOf(".") != -1 && fileName.lastIndexOf(".") != 0) {
                  this.tmp = fileName.substring(fileName.lastIndexOf(".")+1);
             } else {
                  this.tmp = "Something else"
             }
+		
+		this.script.sh("echo '***********************After first if***********************'")
 	    System.out.println(this.config.pompath.length())
             if (this.tmp != 'xml' && this.config.pompath.charAt(this.config.pompath.length()-1) != File.separatorChar) {
                 this.config.pompath += File.separator;
             }
-
+		this.script.sh("echo '***********************xml check***********************'")
             if (this.tmp == 'xml') {
                 return "mvn clean install -DskipTests=true -f " + this.config.pompath
             } else {
                 return "mvn clean install -DskipTests=true -f " + this.config.pompath + "pom.xml"
             }
         } else {
+		this.script.sh("echo '***********************else part***********************'")
             return "mvn clean install -DskipTests=true"
         }
     } else if (this.config.testcase == false) {
