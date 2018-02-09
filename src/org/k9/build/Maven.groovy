@@ -13,8 +13,7 @@ class Maven {
   }
 
   void build() {
-	  this.script.error "hhhhhhhhhhhhhhhhhhhhhhhh"
-	  this.script.sh("echo 'something else'")
+	  this.script.sh("echo '***********************ENV Setup Done***********************'")
 	  println "Inside Maven"	    
   }
 }
