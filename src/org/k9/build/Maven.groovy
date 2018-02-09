@@ -16,6 +16,7 @@ class Maven {
    this.script.stage('Maven build') {
 	  	println(this.config.testcase)
     if (this.config.testcase == true) {
+	  this.script.sh("echo '***********************ENV Setup Done***********************'")
         if (this.config.pompath.length() > 0 && this.config.pompath != false) {
 
             String fileName = this.config.pompath.substring(this.config.pompath.lastIndexOf("/"))
@@ -63,8 +64,6 @@ class Maven {
         this.script.error "testcase parameter has invalid value!"
 	    println(this.config.testcase)
     }
-}
-	  this.script.sh("echo '***********************ENV Setup Done***********************'")
-	  println "Inside Maven"	    
+}	    
   }
 }
