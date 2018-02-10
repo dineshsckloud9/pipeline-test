@@ -14,8 +14,8 @@ def call(body) {
 			returnStdout: true
 			)
 			echo "Filetype is: ${fileType}"
-		def str = "XML"
-		if ( "${fileType}" != str ) {
+		String str = "XML"
+		if ( "${fileType}" == str ) {
 			if ( "${config.testcase}" == true ) {
 						sh("mvn clean install -DskipTests=true -f ${config.pomconfpath}")
 						echo "${config.testcase}"
