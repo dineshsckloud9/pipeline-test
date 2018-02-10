@@ -20,6 +20,7 @@ def call(body) {
 //				fileName=`echo ${"${config.pomconfpath}"##*"/"}`
 //					if ( $fileName != "pom.xml" ) {
 						sh("mvn clean install -DskipTests=true -f ${config.pomconfpath}")
+						echo "${config.testcase}"
 //					}
 //					else ( $fileName == "pom.xml" ) {
 //						echo "Some problems were encountered while processing the POMs"
@@ -36,7 +37,8 @@ def call(body) {
 //			}
 			else {
 				echo "invalid testcase value"
-				exit 1
+						echo "${config.testcase}"
+//				exit 1
 			}
            	}
 		else {
