@@ -11,7 +11,7 @@ def call(body) {
 		stage ('Build') {
 		   fileType = sh ( 
 			script: "file -z "${config.pomconfpath}" | awk '{print $2}'",
-			returnStatus: true
+			returnStdout: true
 			)
 			echo "file type is: $fileType"
 		   if ($fileType == "XML") {
