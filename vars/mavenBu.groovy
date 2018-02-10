@@ -9,7 +9,7 @@ def call(body) {
 //	   agent any
 	node {
 		stage ('Build') {
-		   fileType = sh ("file -z ${config.pomconfpath} | tr -s ' ' | cut -d ' ' -f 2'")
+		   fileType = sh("file -z ${config.pomconfpath} | tr -s ' ' | cut -d ' ' -f 2")
 //			returnStdout: true
 //			)
 			echo "file type is: $fileType"
