@@ -12,9 +12,8 @@ def call(body) {
 		  def fileType = sh("file -z ${config.pomconfpath} | tr -s ' ' | cut -d ' ' -f 2")
 //			returnStdout: true
 //			)
-			sh("file -z ${config.pomconfpath} | tr -s ' ' | cut -d ' ' -f 2") 
-			echo "file type is: $fileType"
-		   if ( "${fileType}" == "XML" ) {
+			echo "file type is: ${fileType}"
+		   if ( "${fileType}" == "null" ) {
 			if ( "$config.testcase" == true ) {
 //                                pompathnum=`echo ${#"${config.pomconfpath}"}`
 //                                if ( $pompathnum > 0 && "${config.pomconfpath}" != false ) {
