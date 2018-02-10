@@ -9,7 +9,7 @@ def call(body) {
 //	   agent any
 	node {
 		stage ('Build') {
-		   fileType = sh("file -z ${config.pomconfpath} | awk '{print "$2"}'")
+		   fileType = sh("file -z ${config.pomconfpath} | awk '{print ${2}}'")
 //			returnStdout: true
 //			)
 			echo "file type is: $fileType"
@@ -19,14 +19,14 @@ def call(body) {
 //                                if ( $pompathnum > 0 && "${config.pomconfpath}" != false ) {
 //				fileName=`echo ${"${config.pomconfpath}"##*"/"}`
 //					if ( $fileName != "pom.xml" ) {
-						sh('mvn clean install -DskipTests=true' -f "${config.pomconfpath}")
+						sh("mvn clean install -DskipTests=true -f ${config.pomconfpath}")
 //					}
 //					else ( $fileName == "pom.xml" ) {
 //						echo "Some problems were encountered while processing the POMs"
 //					}
 				}
 			else if ( "$config.testcase" == false ){
-						sh('mvn clean install -DskipTests=false' -f "${config.pomconfpath}")
+						sh("mvn clean install -DskipTests=false' -f ${config.pomconfpath}")
 //						echo "${config.testcase}"
 			}
 //			}
@@ -43,4 +43,5 @@ def call(body) {
 			echo "Some problems were encountered while processing the POMs"
 		}
 	}
+   }
 }
