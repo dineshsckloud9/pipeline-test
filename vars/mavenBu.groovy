@@ -14,7 +14,7 @@ def call(body) {
 //			)
 			echo "file type is: ${fileType}"
 		   if ( "${fileType}" == "null" ) {
-			if ( "$config.testcase" == true ) {
+			if ("${config.testcase}" == true) {
 //                                pompathnum=`echo ${#"${config.pomconfpath}"}`
 //                                if ( $pompathnum > 0 && "${config.pomconfpath}" != false ) {
 //				fileName=`echo ${"${config.pomconfpath}"##*"/"}`
@@ -26,7 +26,7 @@ def call(body) {
 //						echo "Some problems were encountered while processing the POMs"
 //					}
 				}
-			else if ( "$config.testcase" == false ){
+			else if ("${config.testcase}" == false){
 						sh("mvn clean install -DskipTests=false -f ${config.pomconfpath}")
 //						echo "${config.testcase}"
 			}
@@ -37,7 +37,7 @@ def call(body) {
 //			}
 			else {
 				echo "invalid testcase value"
-						echo "${config.testcase}"
+//						echo "${config.testcase}"
 //				exit 1
 			}
            	}
