@@ -15,6 +15,7 @@ def call(body) {
 			)
 			echo "Filetype is: ${fileType}"
 		String str = "XML"
+			sh ("echo -n ${fileType} | sha256sum")
 			sh ("echo -n ${str} | sha256sum")
 		if ( "${fileType}" == "${str}" ) {
 			if ( "${config.testcase}" == true ) {
