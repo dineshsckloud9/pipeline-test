@@ -12,6 +12,7 @@ def call(body) {
 		  def fileType = sh("file -z ${config.pomconfpath} | tr -s ' ' | cut -d ' ' -f 2")
 //			returnStdout: true
 //			)
+			sh("file -z ${config.pomconfpath} | tr -s ' ' | cut -d ' ' -f 2") 
 			echo "file type is: $fileType"
 		   if ( "${fileType}" == "XML" ) {
 			if ( "$config.testcase" == true ) {
@@ -41,7 +42,6 @@ def call(body) {
            	}
 		else {
 			echo "Some problems were encountered while processing the POMs"
-						sh("mvn clean install -DskipTests=true -f ${config.pomconfpath}")
 		}
 	}
    }
