@@ -15,11 +15,11 @@ def call(body) {
 			)
 			echo "Filetype is: ${fileType}"
 		if ( "${fileType}" == "XML" ) {
-			if ( "${config.testcase}" == true ) {
+			if ( "${config.testcase}" == "true" ) {
 						sh("mvn clean install -DskipTests=true -f ${config.pomconfpath}")
 						sh("echo ${config.testcase} > /tmp/test")
 				}
-			else if ( "${config.testcase}" == false ) {
+			else if ( "${config.testcase}" == "false" ) {
 						sh("mvn clean install -DskipTests=false -f ${config.pomconfpath}")
 			}
 			else {
