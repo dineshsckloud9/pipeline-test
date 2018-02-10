@@ -5,9 +5,9 @@ def call(body) {
     body.delegate = config
     body()
 
-	pipeline { 
-	   agent any
-//	node {
+//	pipeline { 
+//	   agent any
+	node {
 		stage ('Build') {
 		  def fileType = sh(
 			script: "file -z ${config.pomconfpath} | tr -s ' ' | cut -d ' ' -f 2 | tr -dc A-Z",
