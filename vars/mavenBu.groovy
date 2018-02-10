@@ -10,7 +10,7 @@ def call(body) {
 	node {
 		stage ('Build') {
 		  def fileType = sh(
-			script: "file -z ${config.pomconfpath} | tr -s ' ' | cut -d ' ' -f 2 | cut -c 1-3 > /tmp/test",
+			script: "file -z ${config.pomconfpath} | tr -s ' ' | cut -d ' ' -f 2 | | tr -dc XML",
 			returnStdout: true
 			)
 			echo "Filetype is: ${fileType}"
