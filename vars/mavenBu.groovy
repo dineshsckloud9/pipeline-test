@@ -9,7 +9,7 @@ def call(body) {
 //	   agent any
 	node {
 		stage ('Build') {
-		   String fileType=`file -z "${config.pomconfpath}" | awk '{print $2}'`
+		   fileType=`file -z "${config.pomconfpath}" | awk '{print $2}'`
 		   if ($fileType == "XML") {
 			if ( "$config.testcase" == true ) {
 //                                pompathnum=`echo ${#"${config.pomconfpath}"}`
