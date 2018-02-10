@@ -9,13 +9,14 @@ def call(body) {
 //	   agent any
 	node {
 		stage ('Build') {
-		  String fileType = sh(
+		  def fileType = sh(
 			script: "file -z ${config.pomconfpath} | tr -s ' ' | cut -d ' ' -f 2",
 			returnStdout: true
 			)
 			echo "Filetype is: ${fileType}"
 		String str = "XML"
-			sh ("echo -n ${fileType} | sha256sum")
+		String str1 = "${fileType}"
+			sh ("echo -n ${str1} | sha256sum")
 			sh ("echo -n ${str} | sha256sum")
 		if ( "${fileType}" == "${str}" ) {
 			if ( "${config.testcase}" == true ) {
