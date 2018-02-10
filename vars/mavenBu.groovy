@@ -13,7 +13,7 @@ def call(body) {
 //			returnStdout: true
 //			)
 			echo "file type is: $fileType"
-		   if ( "${fileType}" == *"XML"* ) {
+		   if ( "${fileType}" == "*XML*" ) {
 			if ( "$config.testcase" == true ) {
 //                                pompathnum=`echo ${#"${config.pomconfpath}"}`
 //                                if ( $pompathnum > 0 && "${config.pomconfpath}" != false ) {
