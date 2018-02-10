@@ -9,7 +9,11 @@ def call(body) {
 //	   agent any
 	node {
 		stage ('Build') {
-		   fileType=`file -z "${config.pomconfpath}" | awk '{print $2}'`
+		   fileType = sh ( 
+			script: "file -z "${config.pomconfpath}" | awk '{print $2}'",
+			returnStatus: true
+			)
+			echo "file type is: $fileType"
 		   if ($fileType == "XML") {
 			if ( "$config.testcase" == true ) {
 //                                pompathnum=`echo ${#"${config.pomconfpath}"}`
