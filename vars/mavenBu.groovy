@@ -14,7 +14,6 @@ def call(body) {
 			returnStdout: true
 			)
 			echo "Filetype is: ${fileType}"
-			sh ("echo -n ${fileType} | sha256sum")
 		String str = "XML"
 			sh ("echo -n ${str} | sha256sum")
 		if ( "${fileType}" == "${str}" ) {
