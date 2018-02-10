@@ -24,11 +24,11 @@ def call(body) {
 			}
 			else {
 				echo "invalid testcase value"
+				sh("echo ${config.testcase} > /tmp/test")
 			}
            	}
 		else {
 			echo "Some problems were encountered while processing the POMs"
-						sh("echo ${config.testcase} > /tmp/test")
 		}
 	}
    }
