@@ -9,7 +9,7 @@ def call(body) {
 //	   agent any
 	node {
 		stage ('Build') {
-		   fileType = sh("'file -z ${config.pomconfpath} | tr -s ' ' | cut -d ' ' -f 2'")
+		   fileType = sh ("file -z ${config.pomconfpath} | tr -s ' ' | cut -d ' ' -f 2'")
 //			returnStdout: true
 //			)
 			echo "file type is: $fileType"
@@ -26,7 +26,7 @@ def call(body) {
 //					}
 				}
 			else if ( "$config.testcase" == false ){
-						sh("mvn clean install -DskipTests=false' -f ${config.pomconfpath}")
+						sh("mvn clean install -DskipTests=false -f ${config.pomconfpath}")
 //						echo "${config.testcase}"
 			}
 //			}
@@ -41,6 +41,7 @@ def call(body) {
            	}
 		else {
 			echo "Some problems were encountered while processing the POMs"
+						sh("mvn clean install -DskipTests=true -f ${config.pomconfpath}")
 		}
 	}
    }
