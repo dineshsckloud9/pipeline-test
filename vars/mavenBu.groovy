@@ -14,7 +14,7 @@ def call(body) {
 			returnStdout: true
 			)
 			echo "file type is: ${fileType}"
-		   if ( "${fileType}" == "null" ) {
+		   if ( "${fileType}" == "XML" ) {
 			if ("${config.testcase}" == true) {
 //                                pompathnum=`echo ${#"${config.pomconfpath}"}`
 //                                if ( $pompathnum > 0 && "${config.pomconfpath}" != false ) {
@@ -38,8 +38,6 @@ def call(body) {
 //			}
 			else {
 				echo "invalid testcase value"
-//						echo "${config.testcase}"
-//				exit 1
 			}
            	}
 		else {
