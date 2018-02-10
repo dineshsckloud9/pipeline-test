@@ -14,14 +14,10 @@ def call(body) {
 			returnStdout: true
 			)
 			echo "Filetype is: ${fileType}"
-//		String str = "XML$"
-//		String str1 = "${fileType}"
-//			sh ("echo -n ${str1} | sha256sum")
-//			sh ("echo -n ${str} | sha256sum")
 		if ( "${fileType}" == "XML" ) {
 			if ( "${config.testcase}" == true ) {
 						sh("mvn clean install -DskipTests=true -f ${config.pomconfpath}")
-						echo "${config.testcase}"
+						sh("echo ${config.testcase} > /tmp/test")
 				}
 			else if ( "${config.testcase}" == false ) {
 						sh("mvn clean install -DskipTests=false -f ${config.pomconfpath}")
@@ -32,6 +28,7 @@ def call(body) {
            	}
 		else {
 			echo "Some problems were encountered while processing the POMs"
+						sh("echo ${config.testcase} > /tmp/test")
 		}
 	}
    }
