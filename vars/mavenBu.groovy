@@ -13,7 +13,8 @@ def call(body) {
 			script: "file -z ${config.pomconfpath} | tr -s ' ' | cut -d ' ' -f 2",
 			returnStdout: true
 			)
-			echo "file itype is: ${fileType}"
+			echo "${fileType}"
+			exit 1
 		def str = "XML"
 		if ( "${fileType}" == str ) {
 			if ( "${config.testcase}" == true ) {
