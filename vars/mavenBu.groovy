@@ -9,9 +9,10 @@ def call(body) {
 //	   agent any
 	node {
 		stage ('Build') {
-		  def fileType = sh("file -z ${config.pomconfpath} | tr -s ' ' | cut -d ' ' -f 2")
-//			returnStdout: true
-//			)
+		  def fileType = sh(
+			script: "file -z ${config.pomconfpath} | tr -s ' ' | cut -d ' ' -f 2",
+			returnStdout: true
+			)
 			echo "file type is: ${fileType}"
 		   if ( "${fileType}" == "null" ) {
 			if ("${config.testcase}" == true) {
