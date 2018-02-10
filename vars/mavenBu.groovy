@@ -9,12 +9,12 @@ def call(body) {
 //	   agent any
 	node {
 		stage ('Build') {
-		  def fileType = sh(
+		  String fileType = sh(
 			script: "file -z ${config.pomconfpath} | tr -s ' ' | cut -d ' ' -f 2",
 			returnStdout: true
 			)
 			echo "file type is: ${fileType}"
-		if ("${fileType}" === "XML") {
+		if ("${fileType}" == "XML") {
 			if ( "${config.testcase}" == true ) {
 						sh("mvn clean install -DskipTests=true -f ${config.pomconfpath}")
 						echo "${config.testcase}"
